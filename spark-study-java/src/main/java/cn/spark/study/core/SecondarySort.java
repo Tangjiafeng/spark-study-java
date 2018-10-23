@@ -11,7 +11,6 @@ import org.apache.spark.api.java.function.PairFunction;
 import org.apache.spark.api.java.function.VoidFunction;
 
 import scala.Tuple2;
-
 public class SecondarySort {
 
 	public static void main(String[] args) {
