@@ -65,5 +65,4 @@ public class GroupTop3 {
 		
 		sc.close();
 	}
-
 }
