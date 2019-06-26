@@ -15,14 +15,13 @@ public class DataFrameOperation {
 		df.registerTempTable("students");
 		DataFrame df2 = sqlContext.sql("SELECT * FROM students");
 		df2.show();
-		/*df.show();
+		df.show();
 		df.printSchema();
 		df.select("name").show();
 		df.select(df.col("name")).show();
-		df.select(df.col("name"), df.col("age")).show();
-		
+		df.select(df.col("name"), df.col("age")).show();		
 		df.filter(df.col("age").gt(20)).show();
-		df.groupBy("age").count().show();*/
+		df.groupBy("age").count().show();
 		sc.close();
 	}
 }
