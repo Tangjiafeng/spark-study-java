@@ -16,7 +16,7 @@ import org.apache.spark.sql.types.StructType;
 
 public class Rdd2DataFrameProgrammatical {
 
-	public static void main(String[] args) {		
+	public static void main(String[] args) {
 		SparkConf conf = new SparkConf()
 				.setAppName("RddDataFrame")
 				.setMaster("local");
