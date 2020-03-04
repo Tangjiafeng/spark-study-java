@@ -22,8 +22,8 @@ public class Rdd2DataFrameProgrammatical {
 				.setMaster("local");
 		JavaSparkContext sc = new JavaSparkContext(conf);
 		SQLContext sqlContext = new SQLContext(sc);
-		JavaRDD<String> lines = sc.textFile("F:\\temp\\students.txt");
-		List<StructField> fields = new ArrayList<>();
+		JavaRDD<String> lines = sc.textFile("E:\\spark\\txt\\students.txt");
+		List<StructField> fields = new ArrayList<StructField>();
 		fields.add(DataTypes.createStructField("name", DataTypes.StringType, true));
 		fields.add(DataTypes.createStructField("age", DataTypes.IntegerType, true));
 		/*
@@ -36,7 +36,7 @@ public class Rdd2DataFrameProgrammatical {
 		StructType schema = DataTypes.createStructType(fields);
 		JavaRDD<Row> rowRDD = lines.map( line -> {
 			String[] attributes = line.split(",");
-			return RowFactory.create(attributes[0].trim(), Integer.parseInt(attributes[1]));// 注意字段顺序
+			return RowFactory.create(attributes[0].trim(), Integer.parseInt(attributes[2]));// 注意字段顺序
 		});
 		DataFrame schemaDF = sqlContext.createDataFrame(rowRDD, schema);
 		

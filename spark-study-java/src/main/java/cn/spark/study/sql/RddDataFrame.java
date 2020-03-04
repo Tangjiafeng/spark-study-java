@@ -17,12 +17,12 @@ public class RddDataFrame {
 				.setMaster("local");
 		JavaSparkContext sc = new JavaSparkContext(conf);
 		SQLContext sqlContext = new SQLContext(sc);
-		JavaRDD<String> lines = sc.textFile("F:\\temp\\students.txt");
+		JavaRDD<String> lines = sc.textFile("E:\\spark\\txt\\students.txt");
 		JavaRDD<Student> studentRDD = lines.map(line -> {
 			String[] parts = line.split(",");
 			Student student = new Student();
 			student.setName(parts[0]);
-			student.setAge(Integer.parseInt(parts[1].trim()));
+			student.setAge(Integer.parseInt(parts[2].trim()));
 			return student;
 		});
 		
