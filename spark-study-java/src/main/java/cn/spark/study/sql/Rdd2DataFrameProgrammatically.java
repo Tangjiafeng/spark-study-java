@@ -14,7 +14,7 @@ import org.apache.spark.sql.types.DataTypes;
 import org.apache.spark.sql.types.StructField;
 import org.apache.spark.sql.types.StructType;
 
-public class Rdd2DataFrameProgrammatical {
+public class Rdd2DataFrameProgrammatically {
 
 	public static void main(String[] args) {
 		SparkConf conf = new SparkConf()
@@ -36,7 +36,7 @@ public class Rdd2DataFrameProgrammatical {
 		StructType schema = DataTypes.createStructType(fields);
 		JavaRDD<Row> rowRDD = lines.map( line -> {
 			String[] attributes = line.split(",");
-			return RowFactory.create(attributes[0].trim(), Integer.parseInt(attributes[2]));// 注意字段顺序
+			return RowFactory.create(attributes[1].trim(), Integer.parseInt(attributes[2]));// 注意字段顺序
 		});
 		DataFrame schemaDF = sqlContext.createDataFrame(rowRDD, schema);
 		

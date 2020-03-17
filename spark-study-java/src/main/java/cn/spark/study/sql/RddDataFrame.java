@@ -21,7 +21,7 @@ public class RddDataFrame {
 		JavaRDD<Student> studentRDD = lines.map(line -> {
 			String[] parts = line.split(",");
 			Student student = new Student();
-			student.setName(parts[0]);
+			student.setName(parts[1].trim());
 			student.setAge(Integer.parseInt(parts[2].trim()));
 			return student;
 		});
@@ -29,6 +29,7 @@ public class RddDataFrame {
 		DataFrame studentDF = sqlContext.createDataFrame(studentRDD, Student.class);
 		studentDF.registerTempTable("student");
 		DataFrame adultDF = sqlContext.sql("select * from student where age > 18");
+		adultDF.show();
 		JavaRDD<Row> adultRDD = adultDF.javaRDD();
 		
 		List<Student> students = adultRDD.map(adult -> {

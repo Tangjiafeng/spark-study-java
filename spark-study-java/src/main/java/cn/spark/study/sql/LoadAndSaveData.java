@@ -11,7 +11,7 @@ import static org.apache.spark.sql.SaveMode.*;
 /**
  * Generic load and save operation.
  */
-public class LoadData {
+public class LoadAndSaveData {
     public static void main( String[] args) {
         SparkConf conf = new SparkConf().setAppName("loadData").setMaster("local");
         JavaSparkContext sc = new JavaSparkContext(conf);

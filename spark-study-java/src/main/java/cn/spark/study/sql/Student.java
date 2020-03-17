@@ -9,10 +9,6 @@ public class Student implements Serializable {
 	public String getName() {
 		return name;
 	}
-	@Override
-	public String toString() {
-		return this.name + " " + this.age;
-	}
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -21,5 +17,9 @@ public class Student implements Serializable {
 	}
 	public void setAge(int age) {
 		this.age = age;
-	}	
+	}
+	@Override
+	public String toString() {
+		return this.name + " " + this.age;
+	}
 }
